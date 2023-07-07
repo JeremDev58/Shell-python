@@ -1,0 +1,18 @@
+from re import compile, IGNORECASE
+
+FORMAT_RGB = compile('^[#][a-f0-9]{6}$', IGNORECASE)
+FORMAT_FONT = compile('^[a-zA-Z0-9]{2,30}[-][a-z]{4,6}[-][0-9]{1,2}$', IGNORECASE)
+FORMAT_STAG = compile("(/c|/u|/p|/d|/t)", IGNORECASE)
+FORMAT_STAG_SPEC = compile('^[/c]', IGNORECASE)
+FORMAT_STR_HARD = compile("[\"][a-z0-9éèêëàâäiîïôö\?\.\$; :/\\!§\&#'{\(\[\]\)}_\-ç@\=\+\*%£¤<>]*[\"]", IGNORECASE)
+FORMAT_STR_SIMPLE = compile("[a-z0-9éèêëàâäiîïôö\?\.\$;:/\\!§\&#'{\(\[\]\)}_\-ç@\=\+\*%£¤<>]+", IGNORECASE)
+FORMAT_ENV = compile("^\$[a-z0-9_]+", IGNORECASE)
+FORMAT_ENV_CALL = compile("^\$[a-z0-9_]+$", IGNORECASE)
+FORMAT_ENV_SEARCH = compile("\$[a-z0-9_]+", IGNORECASE)
+FORMAT_ENV_DECLARE = compile("^\$[a-z0-9_]+[=]", IGNORECASE)
+FORMAT_COMMAND = compile('^[a-z0-9_$]', IGNORECASE)
+FORMAT_DICT = compile("^[-]")
+FORMAT_JSON_COMMENT = compile("[/][/][a-z0-9éèêëàâäiîïôö\?\.\$;:/\\!§\&#'{\(\[\]\)}_\-ç@\=\+\*%£¤<> ]*", IGNORECASE)
+FORMAT_JSON_MULTI_LINE = compile(r"[/][\*][a-z0-9éèêëàâäiîïôö\?\.\$;:/\\!§\&#'{\(\[\]\)}_\-ç@\=\+\*%£¤<> \n]*[\*][/]", IGNORECASE)
+FORMAT_JSON_RC_1 = compile(r"[\]][,]")
+FORMAT_JSON_RC_2 = compile(r"[}][,]")
